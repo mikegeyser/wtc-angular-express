@@ -6,5 +6,7 @@ import { TodoStore } from './todo.store';
     templateUrl: 'app/app.template.html'
 })
 export class AppComponent {
-    constructor(private todoStore: TodoStore) { }
+    constructor(private todoStore: TodoStore) {
+        this.todos = todoStore.todos;
+    }
 }

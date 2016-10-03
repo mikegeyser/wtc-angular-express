@@ -1,4 +1,6 @@
 import {Injectable, Inject} from '@angular/core';
+import { Http, Response } from '@angular/http';
+import 'rxjs/Rx';
 
 export class Todo {
     title: string;
@@ -16,7 +18,11 @@ export class Todo {
 export class TodoStore {
     todos: Todo[];
 
-    constructor() {
+    constructor(private http: Http) {
         this.todos = [];
+
+        this.http.get("/api/todos").subscribe((res) => {
+            this.todos.push(...res.json());
+        });
     }
 }
