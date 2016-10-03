@@ -26,4 +26,14 @@ router.get("/todos", (req, res) => {
     res.send(todos);
 });
 
+let findTodoByTitle = (title) => {
+    return todos.filter((todo) => todo.title === title)[0];
+};
+
+router.post("/todos/complete", (req, res) => {
+    let todo = findTodoByTitle(req.body.title);
+    todo.completed = true;
+    res.send(todo);
+});
+
 module.exports = router;

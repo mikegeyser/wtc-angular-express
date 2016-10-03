@@ -25,4 +25,11 @@ export class TodoStore {
             this.todos.push(...res.json());
         });
     }
+
+    toggleCompletion(todo: Todo) {
+        this.http.post("/api/todos/complete", todo)
+            .subscribe((res) => {
+                todo.completed = !todo.completed;
+            });
+    }
 }

@@ -7,7 +7,7 @@
 		<ul class="todo-list">
 			<li *ngFor="let todo of todos" [class.completed]="todo.completed">
 				<div class="view">
-					<input class="toggle" type="checkbox" [checked]="todo.completed">
+					<input class="toggle" type="checkbox" [checked]="todo.completed" (click)="toggleCompletion(todo)">
 					<label>{{todo.title}}</label>
 				</div>
 			</li>

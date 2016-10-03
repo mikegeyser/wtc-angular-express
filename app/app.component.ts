@@ -9,4 +9,8 @@ export class AppComponent {
     constructor(private todoStore: TodoStore) {
         this.todos = todoStore.todos;
     }
+
+    toggleCompletion(todo: Todo) {
+        this.todoStore.toggleCompletion(todo);
+    }
 }
