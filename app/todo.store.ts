@@ -32,4 +32,13 @@ export class TodoStore {
                 todo.completed = !todo.completed;
             });
     }
+
+    create(title: string) {
+        let todo = new Todo(title, false);
+
+        this.http.post("/api/todos/create", todo)
+            .subscribe((res) => {
+                this.todos.push(res.json());
+            });
+    }
 }

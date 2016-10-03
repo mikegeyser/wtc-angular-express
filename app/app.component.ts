@@ -6,11 +6,18 @@ import { TodoStore } from './todo.store';
     templateUrl: 'app/app.template.html'
 })
 export class AppComponent {
+    title: string;
+
     constructor(private todoStore: TodoStore) {
         this.todos = todoStore.todos;
     }
 
     toggleCompletion(todo: Todo) {
         this.todoStore.toggleCompletion(todo);
+    }
+
+    create() {
+        this.todoStore.create(this.title);
+        this.title = '';
     }
 }

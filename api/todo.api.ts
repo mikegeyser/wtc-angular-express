@@ -36,4 +36,11 @@ router.post("/todos/complete", (req, res) => {
     res.send(todo);
 });
 
+router.post("/todos/create", (req, res) => {
+    let todo: Todo = req.body;
+    todos.push(todo);
+    res.send(todo);
+});
+
+
 module.exports = router;
