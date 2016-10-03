@@ -41,4 +41,11 @@ export class TodoStore {
                 this.todos.push(res.json());
             });
     }
+
+    remove(todo: Todo) {
+        this.http.post("/api/todos/delete", todo)
+            .subscribe((res) => {
+                this.todos.splice(this.todos.indexOf(todo), 1);
+            });
+    }
 }

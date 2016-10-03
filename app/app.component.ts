@@ -20,4 +20,8 @@ export class AppComponent {
         this.todoStore.create(this.title);
         this.title = '';
     }
+
+    remove(todo) {
+        this.todoStore.remove(todo);
+    }
 }

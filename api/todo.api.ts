@@ -42,5 +42,10 @@ router.post("/todos/create", (req, res) => {
     res.send(todo);
 });
 
+router.post("/todos/delete", (req, res) => {
+    let todo = findTodoByTitle(req.body.title);
+    todos.splice(todos.indexOf(todo), 1);
+    res.send(todos);
+});
 
 module.exports = router;
